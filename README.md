@@ -183,3 +183,230 @@
     >>>print(person1)
     {'name':'Jin','age':20,'korean':True,'handsome':True}
     ```
+
+## Built-in Functions
+
+- A
+
+  - `abs()`:
+  - `aiter()`:
+  - `all()`:
+  - `any()`:
+  - `anext()`:
+  - `ascii()`:
+
+- B
+
+  - `bin()`:
+  - `bool(x)`: Return a Boolean value, i.e. one of True or False. x is converted using the standard truth testing procedure. If x is false or omitted, this returns False; otherwise, it returns True. The bool class is a subclass of int (see Numeric Types — int, float, complex). It cannot be subclassed further. Its only instances are False and True (see Boolean Values).
+
+    - Changed in version 3.7: x is now a positional-only parameter.
+
+  - `breakpoint()`:
+  - `bytearray()`:
+  - `bytes()`:
+
+- C
+
+  - `callable()`:
+  - `chr()`:
+  - `classmethod()`:
+  - `compile()`:
+  - `complex()`:
+
+- D
+
+  - `delattr()`:
+  - `dict()`:
+  - `dir()`:
+  - `divmod()`:
+
+- E
+
+  - `enumerate()`:
+  - `eval()`:
+  - `exec()`:
+
+- F
+
+  - `filter()`:
+  - `float(x)`: Return a floating point number constructed from a number or string x.
+
+    - If the argument is a string, it should contain a decimal number, optionally preceded by a sign, and optionally embedded in whitespace. The optional sign may be `'+'` or `'-'`; a `'+'` sign has no effect on the value produced. The argument may also be a string representing a NaN (not-a-number), or positive or negative infinity. More precisely, the input must conform to the following grammar after leading and trailing whitespace characters are removed
+
+    - Here `floatnumber` is the form of a Python floating-point literal, described in Floating point literals. Case is not significant, so, for example, “inf”, “Inf”, “INFINITY”, and “iNfINity” are all acceptable spellings for positive infinity.
+
+    - Otherwise, if the argument is an integer or a floating point number, a floating point number with the same value (within Python’s floating point precision) is returned. If the argument is outside the range of a Python float, an OverflowError will be raised.
+
+    - For a general Python object `x`, `float(x)` delegates to `x.__float__()`. If `__float__()` is not defined then it falls back to `__index__()`.
+
+    - If no argument is given, `0.0` is returned.
+
+    - Examples:
+
+      - ```python
+        >>>
+        >>> float('+1.23')
+        1.23
+        >>> float('   -12345\n')
+        -12345.0
+        >>> float('1e-003')
+        0.001
+        >>> float('+1E6')
+        1000000.0
+        >>> float('-Infinity')
+        -inf
+        ```
+
+    - The float type is described in Numeric Types — `int`, `float`, `complex`.
+
+    - Changed in version 3.6: Grouping digits with underscores as in code literals is allowed.
+
+    - Changed in version 3.7: x is now a positional-only parameter.
+
+    - Changed in version 3.8: Falls back to `__index__()` if `__float__()` is not defined.
+
+  - `format()`:
+  - `frozenset()`:
+
+- G
+
+  - `getattr()`:
+  - `globals()`:
+
+- H
+
+  - `hasattr()`:
+  - `hash()`:
+  - `help()`:
+  - `hex()`:
+
+- I
+
+  - `id()`:
+  - `input()`:
+  - `int(x, base=10)`:
+
+    - Return an integer object constructed from a number or string `x`, or return `0` if no arguments are given. If x defines `__int__()`, `int(x)` returns `x.__int__()`. If `x` defines `__index__()`, it returns `x.__index__()`. If `x` defines `__trunc__()`, it returns `x.__trunc__()`. For floating point numbers, this truncates towards zero.
+
+    - If x is not a number or if base is given, then x must be a string, bytes, or bytearray instance representing an integer literal in radix base. Optionally, the literal can be preceded by `+` or `-` (with no space in between) and surrounded by whitespace. A base-n literal consists of the digits 0 to n-1, with `a` to `z` (or `A` to `Z`) having values 10 to 35. The default base is 10. The allowed values are 0 and 2–36. Base-2, -8, and -16 literals can be optionally prefixed with `0b`/`0B`, `0o`/`0O`, or `0x`/`0X`, as with integer literals in code. Base 0 means to interpret exactly as a code literal, so that the actual base is 2, 8, 10, or 16, and so that `int('010', 0)` is not legal, while `int('010')` is, as well as i`nt('010', 8)`.
+
+    - The integer type is described in Numeric Types — int, float, complex.
+
+    - Changed in version 3.4: If base is not an instance of int and the base object has a `base.__index__` method, that method is called to obtain an integer for the base. Previous versions used `base.__int__` instead of `base.__index__`.
+
+    - Changed in version 3.6: Grouping digits with underscores as in code literals is allowed.
+
+    - Changed in version 3.7: x is now a positional-only parameter.
+
+    - Changed in version 3.8: Falls back to `__index__()` if `__int__()` is not defined.
+
+  - `isinstance()`:
+  - `issubclass()`:
+  - `iter()`:
+
+- L
+
+  - `len(s)`: Return the length (the number of items) of an object. The argument may be a sequence (such as a string, bytes, tuple, list, or range) or a collection (such as a dictionary, set, or frozen set).
+  - `list()`:
+  - `locals()`:
+
+- M
+
+  - `map()`:
+  - `max()`:
+  - `memoryview()`:
+  - `min()`:
+
+- N
+
+  - `next()`:
+
+- O
+
+  - `object()`:
+  - `oct()`:
+  - `open()`:
+  - `ord()`:
+
+- P
+
+  - `pow()`:
+  - `print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)`:
+
+    - Print objects to the text stream file, separated by sep and followed by end. sep, end, file, and flush, if present, must be given as keyword arguments.
+
+    - All non-keyword arguments are converted to strings like `str()` does and written to the stream, separated by sep and followed by end. Both sep and end must be strings; they can also be None, which means to use the default values. If no objects are given, `print()` will just write end.
+
+    - The file argument must be an object with a `write(string)` method; if it is not present or `None`, `sys.stdout` will be used. Since printed arguments are converted to text strings, print() cannot be used with binary mode file objects. For these, use `file.write(...)` instead.
+
+    - Whether the output is buffered is usually determined by file, but if the flush keyword argument is true, the stream is forcibly flushed.
+
+    - Changed in version 3.3: Added the flush keyword argument.
+
+  - `property()`:
+
+- R
+
+  - `range()`:
+  - `repr()`:
+  - `reversed()`:
+  - `round()`:
+
+- S
+
+  - `set()`:
+  - `setattr()`:
+  - `slice()`:
+  - `sorted()`:
+  - `staticmethod()`:
+  - `str(object=b'', encoding='utf-8', errors='strict')`:
+
+    - Return a `string` version of object. If object is not provided, returns the empty string. Otherwise, the behavior of `str()` depends on whether encoding or errors is given, as follows.
+
+    - If neither encoding nor errors is given, `str(object)` returns `object.__str__()`, which is the “informal” or nicely printable string representation of object. For string objects, this is the string itself. If object does not have a `__str__()` method, then `str()` falls back to returning `repr(object)`.
+
+    - If at least one of encoding or errors is given, object should be a `bytes-like object` (e.g. `bytes` or `bytearray`). In this case, if object is a `bytes` (or `bytearray`) object, then `str(bytes, encoding, errors)` is equivalent to `bytes.decode(encoding, errors)`. Otherwise, the bytes object underlying the buffer object is obtained before calling `bytes.decode()`. See Binary Sequence Types — `bytes`, `bytearray`, `memoryview` and `Buffer Protocol` for information on buffer objects.
+
+    - Passing a `bytes` object to `str()` without the encoding or errors arguments falls under the first case of returning the informal string representation (see also the -b command-line option to Python). For example:
+
+    - ```python
+      >>>
+      >>> str(b'Zoot!')
+      "b'Zoot!'"
+      ```
+
+  - `sum()`:
+  - `super()`:
+
+- T
+
+  - `tuple()`:
+  - `type(name, bases, dict, **kwds)`:
+
+    - With one argument, return the type of an object. The return value is a type object and generally the same object as returned by `object.__class__`.
+
+    - The `isinstance()` built-in function is recommended for testing the type of an object, because it takes subclasses into account.
+
+    - With three arguments, return a new type object. This is essentially a dynamic form of the `class` statement. The name string is the class name and becomes the `__name__` attribute. The bases tuple contains the base classes and becomes the `__bases__` attribute; if empty, `object`, the ultimate base of all classes, is added. The dict dictionary contains attribute and method definitions for the class body; it may be copied or wrapped before becoming the `__dict__` attribute. The following two statements create identical `type` objects:
+
+    - ```python
+      >>> class X:
+      ...  a = 1
+      ...
+      >>> X = type('X', (), dict(a=1))
+      ```
+
+    - Keyword arguments provided to the three argument form are passed to the appropriate metaclass machinery (usually `__init_subclass__()`) in the same way that keywords in a class definition (besides metaclass) would.
+
+    - Changed in version 3.6: Subclasses of type which don’t override `type.__new__` may no longer use the one-argument form to get the type of an object.
+
+- V
+
+  - `vars()`:
+
+- Z
+
+  - `zip()`:
+
+- **import**()
