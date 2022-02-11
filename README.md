@@ -410,3 +410,50 @@
   - `zip()`:
 
 - **import**()
+
+## Define Function
+
+- ```python
+  def say():
+      print('hi')
+
+  say() # hi
+
+  def say_hello(name):
+      print('hello', name)
+
+  say_hello() # TypeError: say_hello() missing 1 required positional argument: 'name'
+  say_hello('Jin')  # hello Jin
+
+  def plus(a, b):
+    print(a + b)
+
+  plus(3 + 2) # 5
+  plus(2) # TypeError: plus() missing 1 required positional argument: 'b'
+
+  # set default value
+  def minus(a, b=0):
+    print(a - b)
+
+  minus(2) # 2
+
+  def r_plus(a, b):
+    return a + b
+
+  result = r_plus(3, 5)
+  print(result) # 8
+
+  # keyworded arguments
+  def divide(a, b):
+    return a / b
+
+  d_result = divide(b=10, a=40)
+  print(d_result) # 4.0
+
+  # string with variable = f"string {variable} "
+  def say_hi(name, age):
+    return f"Hi {name}, you are {age} years old"
+
+  hi = say_hi(age=20, name='Jin')
+  print(hi) # Hi Jin, you are 20 years old
+  ```
