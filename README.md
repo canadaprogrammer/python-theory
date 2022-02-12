@@ -457,3 +457,38 @@
   hi = say_hi(age=20, name='Jin')
   print(hi) # Hi Jin, you are 20 years old
   ```
+
+## Calculator
+
+- `x + y`, `x - y`, `x * y`, `x / y`, `x % y`, `-x`, `x ** y`
+
+- ```python
+  def calculator(a, op, b='No Input'):
+    try:
+      if b=='No Input' and op=='-1':
+        return f'negated {a} = {-1 * float(a)}'
+      elif type(op) is not str:
+        return 'Operator needs to be string'
+      else:
+        switcher = {
+          '+': float(a) + float(b),
+          '-': float(a) - float(b),
+          '*': float(a) * float(b),
+          '/': float(a) / float(b),
+          '%': float(a) % float(b),
+          '**': float(a) ** float(b),
+          '-1': -1 * float(a),
+        }
+        return f'{a} {op} {b} = ' + str(switcher.get(op, f'The "{op}" operation doesn\'t exsit.'));
+    except:
+      return f'{a} {op} {b}: Error'
+
+  print(calculator(4.2, '+', 3))    # 4.2 + 3 = 7.2
+  print(calculator(4, '-', '3'))    # 4 - 3 = 1.0
+  print(calculator(4, '*', '3.5'))  # 4 * 3.5 = 14.0
+  print(calculator('4', '/', 1))    # 4 / 1 = 4.0
+  print(calculator('4', '%', '2'))  # 4 % 2 = 0.0
+  print(calculator(4, '**'))        # 4 ** No Input: Error
+  print(calculator(4, '-1'))        # negated 4 = -4.0
+  print(calculator(4, 1))           # Operator needs to be string
+  ```
