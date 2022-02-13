@@ -492,3 +492,52 @@
   print(calculator(4, '-1'))        # negated 4 = -4.0
   print(calculator(4, 1))           # Operator needs to be string
   ```
+
+## Improved Calculator
+
+- ```python
+  def check_num(x):
+    if type(x) is int or type(x) is float:
+      return True
+    else:
+      return False
+
+  def calculator(a, op, b=None):
+    try:
+      if check_num(a) and op=='-1' and b==None:
+        return f'negated {a} = {-1 * a}'
+      elif type(op) is not str:
+        return 'Operator needs to be string.'
+      elif check_num(a) and check_num(b):
+        switcher = {
+          '+': a + b,
+          '-': a - b,
+          '*': a * b,
+          '/': a / b,
+          '%': a % b,
+          '**': a ** b,
+          '-1': -1 * a,
+        }
+        return f'{a} {op} {b} = ' + str(switcher.get(op, f'The "{op}" operation doesn\'t exist.'));
+      else:
+        result = f'{a} and {b} need to be integer or float.'
+        if not check_num(a):
+          result = result + f'\n\t type of {a}: {type(a)}'
+        if not check_num(b):
+          result = result + f'\n\t type of {b}: {type(b)}'
+        return result
+    except:
+      return f'{a} {op} {b}: Error'
+
+  print(calculator(4.2, '+', 3))    # 4.2 + 3 = 7.2
+  print(calculator(4, '-', '3'))    # 4 and 3 need to be integer or float.
+                                    #   type of 3: <class 'str'>
+  print(calculator(4, '*', 3.5))    # 4 * 3.5 = 14.0
+  print(calculator('4', '/', 1))    # 4 and 1 need to be integer or float.
+                                    #   type of 4: <class 'str'>
+  print(calculator(4, '%', 2))      # 4 % 2 = 0
+  print(calculator(4, '**'))        # 4 ** None need to be integer or float.
+                                    #   type of None: <class 'NoneType'>
+  print(calculator(4, '-1'))        # negated 4 = -4
+  print(calculator(4, 1))           # Operator needs to be string.
+  ```
