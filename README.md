@@ -541,3 +541,32 @@
   print(calculator(4, '-1'))        # negated 4 = -4
   print(calculator(4, 1))           # Operator needs to be string.
   ```
+
+## for in
+
+- ```python
+  days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']
+
+  for day in days:
+    if day == 'Wed':
+      break
+    else:
+      print(day)
+
+  # Mon
+  # Tue
+
+  for letter in 'red':
+    print(letter)
+
+  # r
+  # e
+  # d
+
+  for x in range(1, 4):
+    print(x)
+
+  # 1
+  # 2
+  # 3
+  ```
