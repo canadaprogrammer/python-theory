@@ -570,3 +570,42 @@
   # 2
   # 3
   ```
+
+## Modules
+
+- math
+
+  - ```python
+    import math
+
+    print(math.ceil(2.2)) # 3
+    ```
+
+  - ```python
+    from math import ceil
+
+    print(ceil(2.2))  # 3
+    ```
+
+  - ```python
+    from math import ceil as new_name
+
+    print(new_name(2.2))  # 3
+    ```
+
+## Get Function from File
+
+- Create `calculator.py`
+
+  - ```python
+    def plus(a, b):
+      return a + b
+    ```
+
+- On `main.py`
+
+  - ```python
+    from calculator import plus
+
+    print(plus(1, 3)) # 4
+    ```
