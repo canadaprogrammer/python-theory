@@ -609,3 +609,60 @@
 
     print(plus(1, 3)) # 4
     ```
+
+<!-- prettier-ignore-start -->
+
+## *args and **kwargs
+
+- `*args` allows to pass a varying number of **positional arguments**.
+
+  - using list
+
+    - ```python
+      def my_sum(my_integers):
+        result = 0
+        for x in my_integers:
+          result += x
+        return result
+
+      list_of_integers = [1, 2, 3]
+      print(my_sum(list_of_integers))
+      ```
+
+  - using *args
+
+    - ```python
+      def my_sum(*args):
+        result = 0
+        # Iterating over the Python args tuple
+        for x in args:
+          result += x
+        return result
+
+      print(my_sum(1, 2, 3))
+      ```
+
+- `**kwargs` works just like *args, but instead of accepting positional arguments it accepts **keyword (or named) arguments**.
+
+  - ```python
+    def concatenate(**kwargs):
+      result = ""
+      key = ""
+      # Iterating over the Python kwargs dictionary
+      for arg in kwargs.values():
+        result += arg
+      return result
+      # RealPythonIsGreat!
+
+      # for arg in kwargs:
+      #   key += arg
+      # return key
+      ## abcde
+    print(concatenate(a="Real", b="Python", c="Is", d="Great", e="!"))
+    ```
+
+- If you want to create a function that takes a changeable number of both positional and named arguments, non-default arguments have to precede default arguments, so `*args` must come before `**kwargs`.
+
+  - `def my_function(a, b, *args, **kwargs):`
+
+<!-- prettier-ignore-end -->
