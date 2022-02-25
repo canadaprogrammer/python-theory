@@ -666,3 +666,70 @@
   - `def my_function(a, b, *args, **kwargs):`
 
 <!-- prettier-ignore-end -->
+
+## Object Oriented Programming (OOP)
+
+- ```python
+  class Person:
+    def __init__(self, **kwarg):
+      self.name = kwarg.get('name', 'Anonymous')
+      self.age = kwarg.get('age', 0)
+      self.language = kwarg.get('language', 'Korean')
+
+    # method
+    def myfunc(self):
+      print(f"Hello my name is {self.name}.")
+
+    def __str__(self):
+      return f"{self.name} is {self.age}, and the native language is {self.language}"
+
+  p1 = Person(name='John', age=20, language='English')
+  p1.myfunc()
+  # Hello my name is John.
+  print(p1)
+  # John is 20, and the native language is English
+  ```
+
+- `__init__()`
+
+  - All classes have a function called `__init__()`, which is always executed when the class is being initiated.
+
+  - Use the `__init__()` function to assign values to object properties, or other operations that are necessary to do when the object is being created.
+
+- Object Methods
+
+  - Methods in objects are functions that belong to the object.
+
+  - `self` parameter is a reference to the current instance of the class, and is used to access variables that belong to the class.
+
+    - It doesn't have to be named `self`, you can call it whatever you like, but **it has to be the first parameter of any function in the class**.
+
+- `dir(object)` function
+
+  - It returns all properties and methods of the specified object, without the values, even built-in properties which are default for all object such as `__str__`, `
+
+### Child Class
+
+- To create a class that inherits the functionality from another class, send the parent class as a parameter when creating the child class.
+
+  - ```python
+    class Student(Person):
+      def __init__(self, **kwarg):
+        # inherit the parent parameters
+        super().__init__(**kwarg)
+        self.student_id = kwarg.get('student_id', 'No ID')
+
+      def __str__(self):
+        return f"My student ID is {self.student_id}"
+
+    class Junior(Student):
+      pass
+
+    s1 = Student(student_id='1234')
+    print(s1)
+    # My student ID is 1234
+    print(s1.name, s1.student_id)
+    # Anonymous 1234
+    ```
+
+    - `pass` keyword when you do not want to add any other properties or methods tot he class.
