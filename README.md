@@ -733,3 +733,22 @@
     ```
 
     - `pass` keyword when you do not want to add any other properties or methods tot he class.
+
+## Introduction to Flask
+
+- ```python
+  from flask import Flask
+
+  app = Flask("SuperScrapper")
+
+  @app.route("/")
+
+  def home():
+    return "Hello! Welcome"
+
+  @app.route("/contact")
+  def contact_us():
+    return "Contact Us"
+
+  app.run(host="0.0.0.0")
+  ```
