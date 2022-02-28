@@ -734,6 +734,80 @@
 
     - `pass` keyword when you do not want to add any other properties or methods tot he class.
 
+## Decorators
+
+- A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. Decorators are usually called before the definition of a function you want to decorate.
+
+  - ```python
+    def uppercase_decorator(function):
+      def wrapper():
+        func = function()
+        make_uppercase = func.upper()
+        return make_uppercase
+      return wrapper
+
+    def say_hi():
+      return 'hello there'
+
+    decorate = uppercase_decorator(say_hi)
+    decorate()
+    # 'HELLO THERE'
+    ```
+
+- Use the @ symbol before the function we'd like to decorate.
+
+  - ```python
+    def uppercase_decorator(function):
+      def wrapper():
+        func = function()
+        make_uppercase = func.upper()
+        return make_uppercase
+      return wrapper
+
+    @uppercase_decorator
+    def say_hi():
+      return 'hello there'
+
+    say_hi()
+    # 'HELLO THERE'
+    ```
+
+- Multiple Decorators
+
+  - ```python
+    def uppercase_decorator(function):
+      def wrapper():
+        func = function()
+        make_uppercase = func.upper()
+        return make_uppercase
+
+      print('1', wrapper())
+      return wrapper
+
+    def split_string(function):
+      def wrapper():
+        func = function()
+        splitted_string = func.split()
+        return splitted_string
+
+      print('2', wrapper())
+      return wrapper
+
+    @split_string
+    @uppercase_decorator
+    def say_hi():
+      print('3, say')
+      return 'hello there'
+
+    print(say_hi())
+    # 3, say
+    # 1 HELLO THERE
+    # 3, say
+    # 2 ['HELLO', 'THERE']
+    # 3, say
+    # ['HELLO', 'THERE']
+    ```
+
 ## Introduction to Flask
 
 - ```python
@@ -742,13 +816,13 @@
   app = Flask("SuperScrapper")
 
   @app.route("/")
-
   def home():
-    return "Hello! Welcome"
+    return "Hello! Welcome to Flask!"
 
   @app.route("/contact")
   def contact_us():
     return "Contact Us"
 
+  # 0.0.0.0 is the host of replit.com (https://Python-theory.canadaprogramme.repl.co)
   app.run(host="0.0.0.0")
   ```
