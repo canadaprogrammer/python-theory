@@ -810,6 +810,8 @@
 
 ## Introduction to Flask
 
+### Route
+
 - ```python
   from flask import Flask
 
@@ -826,3 +828,43 @@
   # 0.0.0.0 is the host of replit.com (https://Python-theory.canadaprogramme.repl.co)
   app.run(host="0.0.0.0")
   ```
+
+### Dynamic URLs
+
+- ```python
+  @app.route("/<username>")
+  def contact_us(username):
+    return f"Hello, {username}. How are you doing?"
+  ```
+
+### Templates
+
+- Create `/templates/home.html`
+
+  - ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Job Search</title>
+      </head>
+      <body>
+        <h1>Job Search</h1>
+        <form>
+          <input placeholder="Which job do you want?" required />
+          <button>Search</button>
+        </form>
+      </body>
+    </html>
+    ```
+
+- On `main.py`
+
+  - ```python
+    from flask import Flask, render_template
+
+    app = Flask("SuperScrapper")
+
+    @app.route("/")
+    def home():
+      return render_template('home.html')
+    ```
