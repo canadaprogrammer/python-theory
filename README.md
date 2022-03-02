@@ -868,3 +868,33 @@
     def home():
       return render_template('home.html')
     ```
+
+## Forms and Query Arguments
+
+- On `main.py`
+
+  - ```python
+    from flask import ..., request
+
+    ...
+
+    @app.route("/report")
+    def report():
+      word = request.args.get('word')
+      return render_template("report.html",searchBy=word)
+    ```
+
+- Create `/templates/report.html`
+
+  - ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Job Search</title>
+      </head>
+      <body>
+        <h1>Search Results:</h1>
+        <h3>You are looking for "{{searchBy}}."</h3>
+      </body>
+    </html>
+    ```
