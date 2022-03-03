@@ -881,6 +881,8 @@
     @app.route("/report")
     def report():
       word = request.args.get('word')
+      if word:
+        word = word.lower()
       return render_template("report.html",searchBy=word)
     ```
 
