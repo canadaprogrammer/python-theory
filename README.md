@@ -881,8 +881,6 @@
     @app.route("/report")
     def report():
       word = request.args.get('word')
-      if word:
-        word = word.lower()
       return render_template("report.html",searchBy=word)
     ```
 
@@ -899,4 +897,23 @@
         <h3>You are looking for "{{searchBy}}."</h3>
       </body>
     </html>
+    ```
+
+## Redirect
+
+- On `main.py`
+
+  - ```python
+    from flask import ..., redirect
+
+    ...
+
+    def report():
+      word = request.args.get('word')
+      if word:  # if word exists
+        word = word.lower()
+      else:     # if word doesn't exists, go to home
+        return redirect('/')
+
+      return render_template("report.html", searchBy=word)
     ```
